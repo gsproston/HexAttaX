@@ -21,6 +21,10 @@ int main()
 			}
 		}
 
+		sf::CircleShape hexagon(50, 6);
+
+		window.clear();
+		window.draw(hexagon);
 		window.display();
 	}
 
