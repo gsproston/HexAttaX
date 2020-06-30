@@ -2,7 +2,9 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "HexAttaX");
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "HexAttaX", sf::Style::Default, settings);
 
 	window.setFramerateLimit(60);
 
