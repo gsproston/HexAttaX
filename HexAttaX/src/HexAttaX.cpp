@@ -2,7 +2,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(500, 500), "HexAttaX");
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "HexAttaX");
 
 	window.setFramerateLimit(60);
 
