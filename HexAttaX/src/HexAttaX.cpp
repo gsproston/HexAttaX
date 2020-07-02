@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 int main()
 {
@@ -23,10 +24,25 @@ int main()
 			}
 		}
 
-		sf::CircleShape hexagon(50, 6);
+		std::vector<sf::Vector2i> vPoints =
+		{
+			sf::Vector2i(0, 0),
+			sf::Vector2i(1, 0),
+			sf::Vector2i(0, 1),
+			sf::Vector2i(1, 1)
+		};
 
 		window.clear();
-		window.draw(hexagon);
+		for (const sf::Vector2i& point : vPoints)
+		{
+			const float size = 50.f;
+			// make hexagon and draw it
+			sf::CircleShape hexagon(size, 6);
+			float x = size * (sqrt(3) * point.x + sqrt(3) / 2 * point.y) + point.x;
+			float y = size * (						  3.f / 2 * point.y) + point.y;
+			hexagon.setPosition(x, y);
+			window.draw(hexagon);
+		}
 		window.display();
 	}
 
