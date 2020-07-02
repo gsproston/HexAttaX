@@ -14,5 +14,22 @@
     <ClCompile Include="src\HexAttaX.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\HexGrid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\HexTile.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Constants.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HexGrid.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HashFunctions.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

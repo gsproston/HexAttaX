@@ -20,6 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\HexAttaX.cpp" />
+    <ClCompile Include="src\HexGrid.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\HashFunctions.h" />
+    <ClInclude Include="src\HexGrid.h" />
+    <ClInclude Include="src\HexTile.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
