@@ -1,16 +1,11 @@
 #include "Window.h"
 
+#include "Colours.h"
 #include "Constants.h"
 
 
 namespace Window
 {
-	// anon namespace for encapsulation
-	namespace
-	{
-		const sf::Color clrBackground(220, 220, 220);
-	}
-
 	sf::RenderWindow window;
 
 	void Init()
@@ -26,7 +21,7 @@ namespace Window
 	void Display()
 	{
 		window.display();
-		window.clear(clrBackground);
+		window.clear(Colours::background);
 	}
 
 	void PollEvent()

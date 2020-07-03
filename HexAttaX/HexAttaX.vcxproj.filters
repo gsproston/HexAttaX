@@ -40,5 +40,8 @@
     <ClInclude Include="src\Window.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Colours.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
