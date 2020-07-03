@@ -2,6 +2,7 @@
 
 #include "Colours.h"
 #include "Constants.h"
+#include "HexGrid.h"
 
 
 namespace Window
@@ -21,7 +22,7 @@ namespace Window
 	void Display()
 	{
 		window.display();
-		window.clear(Colours::background);
+		window.clear(Colours::screenBackground);
 	}
 
 	void PollEvent()
@@ -36,6 +37,12 @@ namespace Window
 			{
 				if (event.key.code == sf::Keyboard::Escape)
 					window.close();
+			}
+
+			if (event.type == sf::Event::MouseMoved)
+			{
+				const sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+				HexGrid::MouseMoved(mousePos);
 			}
 		}
 	}

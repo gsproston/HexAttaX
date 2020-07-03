@@ -4,6 +4,7 @@
 
 #include "Constants.h"
 #include "HashFunctions.h"
+#include "HexUtils.h"
 #include "HexTile.h"
 
 
@@ -35,6 +36,19 @@ namespace HexGrid
 		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
 		{
 			(*it).second->Draw();
+		}
+	}
+
+	void MouseMoved(const sf::Vector2i& mousePos)
+	{
+		sf::Vector2i selectedHexTile = HexUtils::PixelToHex(mousePos);
+		printf("mouse at hex %d, %d", selectedHexTile.x, selectedHexTile.y);
+		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
+		{
+			if ((*it).first == selectedHexTile)
+				(*it).second->Hover();
+			else
+				(*it).second->Unhover();
 		}
 	}
 }
