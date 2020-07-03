@@ -3,7 +3,7 @@
 namespace Constants
 {
 	// hex
-	const float HEX_RAD = 50.f;
+	const float HEX_RAD = 64.f;
 
 	// window
 	const int WINDOW_WIDTH = 1280;
