@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "Constants.h"
 #include "HexGrid.h"
 
 
@@ -8,7 +9,9 @@ int main()
 {
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "HexAttaX", sf::Style::Default, settings);
+	sf::RenderWindow window(sf::VideoMode(
+		Constants::WINDOW_WIDTH, Constants::WINDOW_HEIGHT), 
+		"HexAttaX", sf::Style::Default, settings);
 
 	window.setFramerateLimit(60);
 
