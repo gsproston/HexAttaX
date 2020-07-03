@@ -42,7 +42,6 @@ namespace HexGrid
 	void MouseMoved(const sf::Vector2i& mousePos)
 	{
 		sf::Vector2i selectedHexTile = HexUtils::PixelToHex(mousePos);
-		printf("mouse at hex %d, %d", selectedHexTile.x, selectedHexTile.y);
 		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
 		{
 			if ((*it).first == selectedHexTile)
