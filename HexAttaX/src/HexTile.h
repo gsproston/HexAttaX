@@ -8,7 +8,7 @@ class HexTile
 public:
 	HexTile(const sf::Vector2i& loc);
 
-	sf::CircleShape& GetHexagon() { return m_hexagon; };
+	void Draw();
 
 private:
 	sf::CircleShape m_hexagon;

@@ -30,14 +30,11 @@ namespace HexGrid
 		}
 	}
 
-	const std::vector<sf::CircleShape*> GetHexagons()
+	void Draw()
 	{
-		std::vector<sf::CircleShape*> hexagons;
 		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
 		{
-			sf::CircleShape* hexagon = &(*it).second->GetHexagon();
-			hexagons.push_back(hexagon);
+			(*it).second->Draw();
 		}
-		return hexagons;
 	}
 }

@@ -20,6 +20,9 @@
     <ClCompile Include="src\HexTile.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HexTile.h">
@@ -32,6 +35,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\HashFunctions.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

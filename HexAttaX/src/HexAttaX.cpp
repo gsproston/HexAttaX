@@ -1,44 +1,19 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
-
-#include "Constants.h"
 #include "HexGrid.h"
+#include "Window.h"
 
 
 int main()
 {
-	sf::ContextSettings settings;
-	settings.antialiasingLevel = 8;
-	sf::RenderWindow window(sf::VideoMode(
-		Constants::WINDOW_WIDTH, Constants::WINDOW_HEIGHT), 
-		"HexAttaX", sf::Style::Default, settings);
-
-	window.setFramerateLimit(60);
-
+	Window::Init();
 	HexGrid::Init();
 
-	while (window.isOpen())
+	while (Window::window.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
+		Window::PollEvent();
 
-			if (event.type == sf::Event::KeyPressed)
-			{
-				if (event.key.code == sf::Keyboard::Escape)
-					window.close();
-			}
-		}
-
-		window.clear();
-		const std::vector<sf::CircleShape*> vHexagons = HexGrid::GetHexagons();
-		for (uint32_t i = 0; i < vHexagons.size(); ++i)
-		{
-			window.draw(*vHexagons[i]);
-		}
-		window.display();
+		Window::window.clear();
+		HexGrid::Draw();
+		Window::window.display();
 	}
 
 	return 0;

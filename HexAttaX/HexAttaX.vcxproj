@@ -22,12 +22,14 @@
     <ClCompile Include="src\HexAttaX.cpp" />
     <ClCompile Include="src\HexGrid.cpp" />
     <ClCompile Include="src\HexTile.cpp" />
+    <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\HashFunctions.h" />
     <ClInclude Include="src\HexGrid.h" />
     <ClInclude Include="src\HexTile.h" />
+    <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

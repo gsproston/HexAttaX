@@ -1,6 +1,7 @@
 #include "HexTile.h"
 
 #include "Constants.h"
+#include "Window.h"
 
 
 HexTile::HexTile(const sf::Vector2i& loc):
@@ -11,4 +12,9 @@ HexTile::HexTile(const sf::Vector2i& loc):
 	m_hexagon.setPosition(
 		x + Constants::WINDOW_WIDTH / 2 - Constants::HEX_RAD,
 		y + Constants::WINDOW_HEIGHT / 2 - Constants::HEX_RAD);
+}
+
+void HexTile::Draw()
+{
+	Window::window.draw(m_hexagon);
 }
