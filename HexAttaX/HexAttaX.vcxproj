@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\HexAttaX.cpp" />
     <ClCompile Include="src\HexGrid.cpp" />
+    <ClCompile Include="src\HexTile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Constants.h" />

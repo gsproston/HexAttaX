@@ -12,6 +12,8 @@ int main()
 
 	window.setFramerateLimit(60);
 
+	HexGrid::Init();
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -28,7 +30,7 @@ int main()
 		}
 
 		window.clear();
-		std::vector<std::unique_ptr<sf::CircleShape>> vHexagons = HexGrid::GetHexagons();
+		const std::vector<sf::CircleShape*> vHexagons = HexGrid::GetHexagons();
 		for (uint32_t i = 0; i < vHexagons.size(); ++i)
 		{
 			window.draw(*vHexagons[i]);

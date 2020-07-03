@@ -12,34 +12,31 @@ namespace HexGrid
 	// anon namespace for encapsulation
 	namespace
 	{
-		std::unordered_map<sf::Vector2i, HexTile> InitGrid()
-		{
-			const int radius = 2;
-			std::unordered_map<sf::Vector2i, HexTile> umap;
-			for (int q = -radius; q <= radius; q++) {
-				int r1 = std::max(-radius, -q - radius);
-				int r2 = std::min(radius, -q + radius);
-				for (int r = r1; r <= r2; r++) {
-					umap.insert({ sf::Vector2i(q, r), HexTile() });
-				}
-			}
-			return umap;
-		}
-
 		// private variables
-		std::unordered_map<sf::Vector2i, HexTile> umapTiles = InitGrid();
+		std::unordered_map<sf::Vector2i, std::unique_ptr<HexTile>> umapTiles;
 	}
 
-	std::vector<std::unique_ptr<sf::CircleShape>> GetHexagons()
+	void Init()
 	{
-		std::vector<std::unique_ptr<sf::CircleShape>> hexagons;
-		for (auto tile : umapTiles)
+		umapTiles.clear();
+		const int radius = 2;
+		for (int q = -radius; q <= radius; q++) {
+			int r1 = std::max(-radius, -q - radius);
+			int r2 = std::min(radius, -q + radius);
+			for (int r = r1; r <= r2; r++) {
+				const sf::Vector2i loc(q, r);
+				umapTiles.insert({ loc, std::unique_ptr<HexTile>(new HexTile(loc)) });
+			}
+		}
+	}
+
+	const std::vector<sf::CircleShape*> GetHexagons()
+	{
+		std::vector<sf::CircleShape*> hexagons;
+		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
 		{
-			std::unique_ptr<sf::CircleShape> hexagon(new sf::CircleShape(Constants::HEX_RAD, 6));
-			float x = Constants::HEX_RAD * (sqrt(3) * tile.first.x + sqrt(3) / 2 * tile.first.y) + tile.first.x;
-			float y = Constants::HEX_RAD * (							 3.f / 2 * tile.first.y) + tile.first.y;
-			hexagon->setPosition(x, y);
-			hexagons.push_back(std::move(hexagon));
+			sf::CircleShape* hexagon = &(*it).second->GetHexagon();
+			hexagons.push_back(hexagon);
 		}
 		return hexagons;
 	}

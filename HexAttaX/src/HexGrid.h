@@ -6,5 +6,6 @@
 
 namespace HexGrid
 {
-	std::vector<std::unique_ptr<sf::CircleShape>> GetHexagons();
+	void Init();
+	const std::vector<sf::CircleShape*> GetHexagons();
 }
