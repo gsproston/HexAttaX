@@ -10,10 +10,8 @@ int main()
 	while (Window::window.isOpen())
 	{
 		Window::PollEvent();
-
-		Window::window.clear();
 		HexGrid::Draw();
-		Window::window.display();
+		Window::Display();
 	}
 
 	return 0;

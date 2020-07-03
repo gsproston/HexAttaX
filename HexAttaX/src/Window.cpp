@@ -13,8 +13,14 @@ namespace Window
 		settings.antialiasingLevel = 8;
 		window.create(sf::VideoMode(
 			Constants::WINDOW_WIDTH, Constants::WINDOW_HEIGHT),
-			"HexAttaX", sf::Style::Default, settings);
+			"HexAttaX", 0x5, settings);
 		window.setFramerateLimit(60);
+	}
+
+	void Display()
+	{
+		window.display();
+		window.clear();
 	}
 
 	void PollEvent()
