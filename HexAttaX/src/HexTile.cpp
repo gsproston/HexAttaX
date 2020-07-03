@@ -12,6 +12,7 @@ HexTile::HexTile(const sf::Vector2i& loc):
 	m_hexagon.setPosition(
 		x + Constants::WINDOW_WIDTH / 2 - Constants::HEX_RAD,
 		y + Constants::WINDOW_HEIGHT / 2 - Constants::HEX_RAD);
+	m_hexagon.setFillColor(sf::Color(125, 175, 255));
 }
 
 void HexTile::Draw()
