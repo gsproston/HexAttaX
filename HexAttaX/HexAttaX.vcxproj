@@ -23,6 +23,7 @@
     <ClCompile Include="src\HexGrid.cpp" />
     <ClCompile Include="src\HexTile.cpp" />
     <ClCompile Include="src\HexUtils.cpp" />
+    <ClCompile Include="src\PathUtils.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="src\HexGrid.h" />
     <ClInclude Include="src\HexTile.h" />
     <ClInclude Include="src\HexUtils.h" />
+    <ClInclude Include="src\PathUtils.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -113,8 +115,11 @@
     </Link>
     <PostBuildEvent>
       <Command>copy "$(ProjectDir)libs\sfml-graphics-d-2.dll" "$(TargetDir)"
+
 copy "$(ProjectDir)libs\sfml-system-d-2.dll" "$(TargetDir)"
-copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"</Command>
+
+copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"
+copy "$(ProjectDir)fonts\gamer_font.ttf" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,8 +137,11 @@ copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"</Command>
     </Link>
     <PostBuildEvent>
       <Command>copy "$(ProjectDir)libs\sfml-graphics-d-2.dll" "$(TargetDir)"
+
 copy "$(ProjectDir)libs\sfml-system-d-2.dll" "$(TargetDir)"
-copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"</Command>
+
+copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"
+copy "$(ProjectDir)fonts\gamer_font.ttf" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
