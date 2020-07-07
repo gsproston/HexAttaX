@@ -1,5 +1,5 @@
 #include "HexGrid.h"
-#include "PathUtils.h"
+#include "FontUtils.h"
 #include "Window.h"
 
 
@@ -14,9 +14,7 @@ int main()
 
 		HexGrid::Draw();
 		sf::Font font;
-		std::string fontPath;
-		if (PathUtils::GetExePath(fontPath) &&
-			font.loadFromFile(fontPath + "gamer_font.ttf"))
+		if (FontUtils::Load(font, "gamer_font.ttf"))
 		{
 			sf::Text text;
 			text.setFont(font);

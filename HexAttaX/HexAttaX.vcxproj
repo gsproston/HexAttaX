@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\FontUtils.cpp" />
     <ClCompile Include="src\HexAttaX.cpp" />
     <ClCompile Include="src\HexGrid.cpp" />
     <ClCompile Include="src\HexTile.cpp" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="src\Colours.h" />
     <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\FontUtils.h" />
     <ClInclude Include="src\HashFunctions.h" />
     <ClInclude Include="src\HexGrid.h" />
     <ClInclude Include="src\HexTile.h" />
@@ -119,7 +121,8 @@
 copy "$(ProjectDir)libs\sfml-system-d-2.dll" "$(TargetDir)"
 
 copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"
-copy "$(ProjectDir)fonts\gamer_font.ttf" "$(TargetDir)"</Command>
+if not exist "$(TargetDir)fonts" mkdir "$(TargetDir)fonts"
+xcopy /E /I /Y "$(ProjectDir)fonts" "$(TargetDir)fonts"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,7 +144,8 @@ copy "$(ProjectDir)fonts\gamer_font.ttf" "$(TargetDir)"</Command>
 copy "$(ProjectDir)libs\sfml-system-d-2.dll" "$(TargetDir)"
 
 copy "$(ProjectDir)libs\sfml-window-d-2.dll" "$(TargetDir)"
-copy "$(ProjectDir)fonts\gamer_font.ttf" "$(TargetDir)"</Command>
+if not exist "$(TargetDir)fonts" mkdir "$(TargetDir)fonts"
+xcopy /E /I /Y "$(ProjectDir)fonts" "$(TargetDir)fonts"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

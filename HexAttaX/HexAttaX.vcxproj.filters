@@ -29,6 +29,9 @@
     <ClCompile Include="src\PathUtils.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\FontUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HexTile.h">
@@ -53,6 +56,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\PathUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FontUtils.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
