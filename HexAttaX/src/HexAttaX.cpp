@@ -1,5 +1,5 @@
 #include "HexGrid.h"
-#include "FontUtils.h"
+#include "PlayerManager.h"
 #include "Window.h"
 
 
@@ -13,16 +13,7 @@ int main()
 		Window::PollEvent();
 
 		HexGrid::Draw();
-		sf::Font font;
-		if (FontUtils::Load(font, "gamer_font.ttf"))
-		{
-			sf::Text text;
-			text.setFont(font);
-			text.setString("P1");
-			text.setCharacterSize(128);
-			text.setFillColor(sf::Color::Black);
-			Window::window.draw(text);
-		}
+		PlayerManager::Draw();
 
 		Window::Display();
 	}
