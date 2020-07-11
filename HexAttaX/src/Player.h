@@ -5,6 +5,10 @@
 
 class Player
 {
-private:
+public:
+	Player() :
+		m_points(0)
+	{}
+
 	uint32_t m_points;
 };

@@ -35,11 +35,21 @@ namespace PlayerManager
 				Constants::WINDOW_HEIGHT / 4.f));
 			Window::window.draw(text);
 
+			text.setString(std::to_string(aPlayers[0].m_points));
+			text.setPosition(sf::Vector2f(Constants::WINDOW_WIDTH / 8.f,
+				Constants::WINDOW_HEIGHT / 3.f));
+			Window::window.draw(text);
+
 			text.setString("P2");
 			text.setFillColor(Colours::textP2);
 			text.setOutlineColor(Colours::textOutlineP2);
 			text.setPosition(sf::Vector2f(Constants::WINDOW_WIDTH * 6.5f / 8.f, 
 				Constants::WINDOW_HEIGHT / 4.f));
+			Window::window.draw(text);
+
+			text.setString(std::to_string(aPlayers[1].m_points));
+			text.setPosition(sf::Vector2f(Constants::WINDOW_WIDTH * 6.5f / 8.f,
+				Constants::WINDOW_HEIGHT / 3.f));
 			Window::window.draw(text);
 		}
 	}
