@@ -57,12 +57,14 @@ void HexTile::Clicked()
 		else
 			m_hexagon.setFillColor(Colours::tileBackgroundP2);
 		++m_level;
+		PlayerManager::IncrementPoints(m_player);
 		PlayerManager::NextActivePlayer();
 	}
 	else if (PlayerManager::GetActivePlayer() == m_player &&
 		m_level < Constants::MAX_LEVEL)
 	{
 		++m_level;
+		PlayerManager::IncrementPoints(m_player);
 		PlayerManager::NextActivePlayer();
 	}
 }
