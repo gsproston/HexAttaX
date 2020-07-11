@@ -8,6 +8,7 @@ namespace Constants
 
 	// hex
 	const float HEX_RAD = WINDOW_WIDTH / 20.f;
+	const int MAX_LEVEL = 3;
 
 	// text
 	const int FONT_SIZE = WINDOW_HEIGHT / 5.f;

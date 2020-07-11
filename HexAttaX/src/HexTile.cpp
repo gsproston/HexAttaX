@@ -59,7 +59,8 @@ void HexTile::Clicked()
 		++m_level;
 		PlayerManager::NextActivePlayer();
 	}
-	else if (PlayerManager::GetActivePlayer() == m_player)
+	else if (PlayerManager::GetActivePlayer() == m_player &&
+		m_level < Constants::MAX_LEVEL)
 	{
 		++m_level;
 		PlayerManager::NextActivePlayer();
