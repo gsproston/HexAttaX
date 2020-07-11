@@ -17,6 +17,8 @@ public:
 private:
 	bool IsSelected() const { return m_player <= 1; };
 
+	uint8_t m_level;
 	uint8_t m_player;
+	sf::Vector2i m_loc;
 	sf::CircleShape m_hexagon;
 };
