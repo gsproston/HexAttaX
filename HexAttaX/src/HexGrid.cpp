@@ -52,4 +52,17 @@ namespace HexGrid
 				(*it).second->Unhover();
 		}
 	}
+
+	void MouseButtonReleased(const sf::Vector2i& mousePos)
+	{
+		sf::Vector2i selectedHexTile = HexUtils::PixelToHex(mousePos);
+		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
+		{
+			if ((*it).first == selectedHexTile)
+			{
+				(*it).second->Clicked();
+				break;
+			}
+		}
+	}
 }

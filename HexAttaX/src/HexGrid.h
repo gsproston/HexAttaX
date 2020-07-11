@@ -9,4 +9,5 @@ namespace HexGrid
 	void Draw();
 
 	void MouseMoved(const sf::Vector2i& mousePos);
+	void MouseButtonReleased(const sf::Vector2i& mousePos);
 }

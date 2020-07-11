@@ -44,6 +44,12 @@ namespace Window
 				const sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 				HexGrid::MouseMoved(mousePos);
 			}
+
+			if (event.type == sf::Event::MouseButtonReleased)
+			{
+				const sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+				HexGrid::MouseButtonReleased(mousePos);
+			}
 		}
 	}
 }
