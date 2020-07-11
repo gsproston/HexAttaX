@@ -3,6 +3,7 @@
 #include "Colours.h"
 #include "Constants.h"
 #include "HexUtils.h"
+#include "PlayerManager.h"
 #include "Window.h"
 
 
@@ -23,7 +24,10 @@ void HexTile::Draw() const
 
 void HexTile::Hover()
 {
-	m_hexagon.setFillColor(Colours::tileHover);
+	if (PlayerManager::GetActivePlayer() == 0)
+		m_hexagon.setFillColor(Colours::tileHoverP1);
+	else
+		m_hexagon.setFillColor(Colours::tileHoverP2);
 }
 
 void HexTile::Unhover()
