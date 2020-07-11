@@ -48,4 +48,9 @@ namespace PlayerManager
 	{
 		return activePlayer;
 	}
+
+	void NextActivePlayer()
+	{
+		activePlayer = (activePlayer + 1) % 2;
+	}
 }

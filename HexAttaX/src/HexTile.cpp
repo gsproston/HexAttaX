@@ -32,6 +32,7 @@ void HexTile::Clicked()
 			m_hexagon.setFillColor(Colours::tileBackgroundP1);
 		else
 			m_hexagon.setFillColor(Colours::tileBackgroundP2);
+		PlayerManager::NextActivePlayer();
 	}
 }
 
