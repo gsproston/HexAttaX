@@ -31,4 +31,4 @@ For example, if a player owns a level 3 tile and a level 2 tile, they have 5 poi
 The game ends when there are no more blank tiles on the board.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
