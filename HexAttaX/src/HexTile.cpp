@@ -23,10 +23,12 @@ HexTile::HexTile(const sf::Vector2i& loc):
 
 void HexTile::Draw() const
 {
+	// draw the hexagon
 	Window::window.draw(m_hexagon);
 
 	if (IsSelected())
 	{
+		// draw the level number on the hexagon
 		sf::Font font;
 		if (FontUtils::Load(font, "gamer_font.ttf"))
 		{
@@ -47,26 +49,28 @@ void HexTile::Draw() const
 	}
 }
 
-void HexTile::Clicked()
+// returns true if selected
+bool HexTile::Clicked()
 {
+	bool selected = false;
 	if (!IsSelected())
 	{
-		m_player = PlayerManager::GetActivePlayer();
-		if (m_player == 0)
-			m_hexagon.setFillColor(Colours::tileBackgroundP1);
-		else
-			m_hexagon.setFillColor(Colours::tileBackgroundP2);
+		// not selected, this now belongs to the active player
+		SetPlayer(PlayerManager::GetActivePlayer());
 		++m_level;
-		PlayerManager::IncrementPoints(m_player);
-		PlayerManager::NextActivePlayer();
+		PlayerManager::AlterPoints(m_player, 1);
+		selected = true;
 	}
 	else if (PlayerManager::GetActivePlayer() == m_player &&
 		m_level < Constants::MAX_LEVEL)
 	{
+		// already selected by the active player
+		// level up this tile
 		++m_level;
-		PlayerManager::IncrementPoints(m_player);
-		PlayerManager::NextActivePlayer();
+		PlayerManager::AlterPoints(m_player, 1);
+		selected = true;
 	}
+	return selected;
 }
 
 void HexTile::Hover()
@@ -86,4 +90,34 @@ void HexTile::Unhover()
 	{
 		m_hexagon.setFillColor(Colours::tileBackground);
 	}
+}
+
+bool HexTile::Propogate(const uint8_t level)
+{
+	if (level > 0 && 
+		m_level == level)
+	{
+		if (m_player != PlayerManager::GetActivePlayer())
+		{
+			// change the points
+			PlayerManager::AlterPoints(PlayerManager::GetInactivePlayer(), -level);
+			PlayerManager::AlterPoints(PlayerManager::GetActivePlayer(), level);
+			// give ownership to the current player
+			SetPlayer(PlayerManager::GetActivePlayer());
+		}
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void HexTile::SetPlayer(const uint8_t player)
+{
+	m_player = PlayerManager::GetActivePlayer();
+	if (m_player == 0)
+		m_hexagon.setFillColor(Colours::tileBackgroundP1);
+	else
+		m_hexagon.setFillColor(Colours::tileBackgroundP2);
 }

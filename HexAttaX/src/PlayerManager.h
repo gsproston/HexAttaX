@@ -7,9 +7,10 @@ namespace PlayerManager
 {
 	void Draw();
 
-	void DecrementPoints(const uint8_t player);
-	void IncrementPoints(const uint8_t player);
+	void AlterPoints(const uint8_t player,
+		const int8_t diff);
 
 	uint8_t GetActivePlayer();
+	uint8_t GetInactivePlayer();
 	void NextActivePlayer();
 }

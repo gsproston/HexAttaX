@@ -1,11 +1,13 @@
 #include "HexGrid.h"
 
+#include <array>
 #include <unordered_map>
 
 #include "Constants.h"
 #include "HashFunctions.h"
 #include "HexUtils.h"
 #include "HexTile.h"
+#include "PlayerManager.h"
 
 
 namespace HexGrid
@@ -41,6 +43,32 @@ namespace HexGrid
 		}
 	}
 
+	void Propogate(const sf::Vector2i& loc,
+		const int level)
+	{
+		// get neighbours
+		const std::array<sf::Vector2i, 6> dirs =
+		{
+			sf::Vector2i(1, 0),
+			sf::Vector2i(1, -1),
+			sf::Vector2i(0, -1),
+			sf::Vector2i(-1, 0),
+			sf::Vector2i(-1, 1),
+			sf::Vector2i(0, 1),
+		};
+
+		for (const sf::Vector2i dir : dirs)
+		{
+			if (umapTiles.find(loc + dir) != umapTiles.end())
+			{
+				if (umapTiles.at(loc + dir)->Propogate(level - 1))
+				{
+					Propogate(loc + dir, level - 1);
+				}
+			}
+		}
+	}
+
 	void MouseMoved(const sf::Vector2i& mousePos)
 	{
 		sf::Vector2i selectedHexTile = HexUtils::PixelToHex(mousePos);
@@ -56,12 +84,14 @@ namespace HexGrid
 	void MouseButtonReleased(const sf::Vector2i& mousePos)
 	{
 		sf::Vector2i selectedHexTile = HexUtils::PixelToHex(mousePos);
-		for (auto it = umapTiles.begin(); it != umapTiles.end(); ++it)
+		if (umapTiles.find(selectedHexTile) != umapTiles.end())
 		{
-			if ((*it).first == selectedHexTile)
+			if (umapTiles.at(selectedHexTile)->Clicked())
 			{
-				(*it).second->Clicked();
-				break;
+				// propogate selection to neighbouring tiles
+				Propogate(selectedHexTile, umapTiles.at(selectedHexTile)->GetLevel());
+				// pass control to the next player
+				PlayerManager::NextActivePlayer();
 			}
 		}
 	}

@@ -54,19 +54,20 @@ namespace PlayerManager
 		}
 	}
 
-	void DecrementPoints(const uint8_t player)
+	void AlterPoints(const uint8_t player,
+		const int8_t diff)
 	{
-		aPlayers[player].m_points--;
-	}
-
-	void IncrementPoints(const uint8_t player)
-	{
-		aPlayers[player].m_points++;
+		aPlayers[player].m_points += diff;
 	}
 
 	uint8_t GetActivePlayer()
 	{
 		return activePlayer;
+	}
+
+	uint8_t GetInactivePlayer()
+	{
+		return (activePlayer + 1) % 2;
 	}
 
 	void NextActivePlayer()
